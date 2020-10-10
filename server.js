@@ -19,6 +19,10 @@ db(server);
 // Use HTTPLogger Middleware
 app.use(logger('dev'));
 
+// Express Json Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 
