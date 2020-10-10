@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "simple authentication API with node.js and express.js",
     "main": "server.js",
-    "type": "module",
     "repository": "https://github.com/rooneyrulz/express-auth-api.git",
     "scripts": {
         "start": "node server.js",
