@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('colors');
 
 module.exports = async(server) => {
     try {
@@ -10,7 +11,7 @@ module.exports = async(server) => {
         });
 
         if (connection) {
-            console.log(`mongo connection successful!!`.cyan);
+            console.log(`mongo connection successful!!`.magenta);
             server.listen(process.env.PORT | 5000, () =>
                 console.log(`server running on port ${process.env.PORT}!!`.yellow)
             );

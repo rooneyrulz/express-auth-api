@@ -2,7 +2,6 @@ const express = require('express');
 const { createServer } = require('http');
 const dotENV = require('dotenv');
 const logger = require('morgan');
-require('colors');
 
 // Mongo Connection
 const db = require('./config/db.js');
