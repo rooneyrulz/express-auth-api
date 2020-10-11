@@ -10,7 +10,7 @@ const signUp = async(req, res, next) => {
     try {
         const isUserExist = await User.findOne({ email }).lean();
         if (isUserExist)
-            return res.status(400).send('Email has already been taken!');
+            return res.status(409).send('Email has already been taken!');
 
         const hashedPWD = await bcrypt.hash(password, 12);
         const user = await new User({ email, password: hashedPWD }).save();
@@ -50,6 +50,17 @@ const logIn = async(req, res, next) => {
         return Promise.reject();
     }
 };
-const authUser = async(req, res, next) => res.send('AuthUser');
+const authUser = async(req, res, next) => {
+    const { id, iat, exp } = req.user;
+    try {
+        const user = await User.findById(id).lean();
+        res.status(200).json({ user: {...user, password: undefined, iat, exp } });
+        return Promise.resolve();
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send('Server Error!');
+        return Promise.reject();
+    }
+};
 
 module.exports = { signUp, logIn, authUser };
