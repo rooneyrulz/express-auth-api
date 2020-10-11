@@ -13,7 +13,7 @@ const app = express();
 const server = createServer(app);
 
 // Remove Console Logs in Production
-process.env.NODE_ENV === 'production' && console.log() === function() {};
+process.env.NODE_ENV === 'production' && console.log == function() {};
 
 // Establish Mongo Connection
 db(server);
