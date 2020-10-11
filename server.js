@@ -12,11 +12,14 @@ dotENV.config({ path: './config/config.env' });
 const app = express();
 const server = createServer(app);
 
+// Remove Console Logs in Production
+process.env.NODE_ENV === 'production' && console.log() === function() {};
+
 // Establish Mongo Connection
 db(server);
 
 // Use HTTPLogger Middleware
-app.use(logger('dev'));
+process.env.NODE_ENV === 'development' && app.use(logger('dev'));
 
 // Express Json Parser
 app.use(express.json());
