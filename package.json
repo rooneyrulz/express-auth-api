@@ -19,7 +19,6 @@
         "esm": "^3.2.25",
         "express": "^4.17.1",
         "express-validator": "^6.6.1",
-        "global": "^4.4.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.10.9",
         "morgan": "^1.10.0"
